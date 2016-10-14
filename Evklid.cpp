@@ -7,5 +7,5 @@ int Evklid(int a, int b)//Определение НОД по алгоритму Евклида
 		a = b;
 		b = k;
 	}
-	return b;
+	return (b>0)?b:-b;
 }

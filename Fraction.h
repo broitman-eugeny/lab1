@@ -21,7 +21,7 @@ public:
 	int GetNumerator();					//Извлечение значения числителя
 	int GetDenominator();				//Извлечение значения знаменателя
 	static int GetCount();				//Извлечение количества созданных объектов
-	void Print();			//Вывод на экран
+	void Print();						//Вывод на экран
 };
 //Определение НОД по алгоритму Евклида
 int Evklid(int a, int b);

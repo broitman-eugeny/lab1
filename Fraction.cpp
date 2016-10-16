@@ -56,3 +56,14 @@ void Fraction::Print()
 {
 	std::cout << Numerator << "\t\t" << Denominator << std::endl;
 }
+int Fraction::Evklid(int N, int D)//Определение НОД по алгоритму Евклида
+{
+	int K;
+
+	while (0 != (K = N%D))
+	{
+		N = D;
+		D = K;
+	}
+	return (D>0) ? D : -D;
+}

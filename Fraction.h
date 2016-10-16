@@ -8,6 +8,7 @@ class Fraction
 	int Numerator;		//Числитель
 	int Denominator;	//Знаменатель
 	static int Count;	//Счетчик объектов
+	static int Evklid(int N, int D);	//Определение НОД по алгоритму Евклида
 public:
 	Fraction();							//Конструктор по умолчанию
 	Fraction(int N, int D);				//Конструктор с параметрами
@@ -23,8 +24,6 @@ public:
 	static int GetCount();				//Извлечение количества созданных объектов
 	void Print();						//Вывод на экран
 };
-//Определение НОД по алгоритму Евклида
-int Evklid(int a, int b);
 //Функция меню
 //PFraction - массив указателей на объекты типа Fraction, состоящий из FractionDimSize элементов
 void Menu(Fraction **PFraction);

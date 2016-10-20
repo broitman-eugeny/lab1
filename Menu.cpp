@@ -39,8 +39,10 @@ void Menu(Fraction **PFraction)
 	{
 		ShowMenu();
 		std::cin >> C;
-		while (C<'а' || C>'д')
+		while (C<'а' || C>'д' || std::cin.fail())
 		{
+			std::cin.clear();
+			std::cin.ignore(std::cin.rdbuf()->in_avail());//Очистка буфера
 			std::cout << std::endl << "Неверно введен символ, введите еще раз: ";
 			std::cin >> C;
 		}
@@ -58,8 +60,10 @@ void Menu(Fraction **PFraction)
 				{
 					ShowMenu2();
 					std::cin >> C2;
-					while (C2<1 || C2>4)
+					while (C2<1 || C2>4 || std::cin.fail())
 					{
+						std::cin.clear();
+						std::cin.ignore(std::cin.rdbuf()->in_avail());//Очистка буфера
 						std::cout << std::endl << "Неверно введен номер, введите еще раз: ";
 						std::cin >> C2;
 					}
@@ -79,8 +83,10 @@ void Menu(Fraction **PFraction)
 						}
 						std::cout << "Введите индекс копируемого объекта: ";
 						std::cin >> IndexOfCopy;
-						while (IndexOfCopy<0 || IndexOfCopy >= Fraction::GetCount())
+						while (IndexOfCopy<0 || IndexOfCopy >= Fraction::GetCount() || std::cin.fail())
 						{
+							std::cin.clear();
+							std::cin.ignore(std::cin.rdbuf()->in_avail());//Очистка буфера
 							std::cout << std::endl << "Индекс введен неверно, введите еще раз: ";
 							std::cin >> IndexOfCopy;
 						}
@@ -92,8 +98,22 @@ void Menu(Fraction **PFraction)
 						std::cout << "Числитель: ";
 						int N,D;
 						std::cin >> N;
+						while (std::cin.fail())
+						{
+							std::cin.clear();
+							std::cin.ignore(std::cin.rdbuf()->in_avail());//Очистка буфера
+							std::cout << std::endl << "Неверно введено число, введите еще раз: ";
+							std::cin >> N;
+						}
 						std::cout << "Знаменатель: ";
 						std::cin >> D;
+						while (std::cin.fail())
+						{
+							std::cin.clear();
+							std::cin.ignore(std::cin.rdbuf()->in_avail());//Очистка буфера
+							std::cout << std::endl << "Неверно введено число, введите еще раз: ";
+							std::cin >> D;
+						}
 						Index = Fraction::GetCount();
 						PFraction[Index] = new Fraction(N,D);
 						std::cout << "Количество объектов: " << Fraction::GetCount() << std::endl;
@@ -111,8 +131,10 @@ void Menu(Fraction **PFraction)
 			std::cout << "Введите индекс удаляемого объекта: ";
 			int Index;
 			std::cin >> Index;
-			while (Index<0 || Index>= Fraction::GetCount())
+			while (Index<0 || Index>= Fraction::GetCount() || std::cin.fail())
 			{
+				std::cin.clear();
+				std::cin.ignore(std::cin.rdbuf()->in_avail());//Очистка буфера
 				std::cout << std::endl << "Индекс введен неверно, введите еще раз: ";
 				std::cin >> Index;
 			}
@@ -141,8 +163,10 @@ void Menu(Fraction **PFraction)
 			}
 			std::cout << "Введите индекс управляемого объекта: ";
 			std::cin >> Index;
-			while (Index<0 || Index >= Fraction::GetCount())
+			while (Index<0 || Index >= Fraction::GetCount() || std::cin.fail())
 			{
+				std::cin.clear();
+				std::cin.ignore(std::cin.rdbuf()->in_avail());//Очистка буфера
 				std::cout << std::endl << "Индекс введен неверно, введите еще раз: ";
 				std::cin >> Index;
 			}
@@ -151,8 +175,10 @@ void Menu(Fraction **PFraction)
 			{
 				ShowMenu3();
 				std::cin >> C3;
-				while (C3 < 1 || C3>5)
+				while (C3 < 1 || C3>5 || std::cin.fail())
 				{
+					std::cin.clear();
+					std::cin.ignore(std::cin.rdbuf()->in_avail());//Очистка буфера
 					std::cout << std::endl << "Неверно введен номер, введите еще раз: ";
 					std::cin >> C3;
 				}
@@ -163,8 +189,22 @@ void Menu(Fraction **PFraction)
 					std::cout << "Новый числитель: ";
 					int N, D;
 					std::cin >> N;
+					while (std::cin.fail())
+					{
+						std::cin.clear();
+						std::cin.ignore(std::cin.rdbuf()->in_avail());//Очистка буфера
+						std::cout << std::endl << "Неверно введено число, введите еще раз: ";
+						std::cin >> N;
+					}
 					std::cout << "Новый знаменатель: ";
 					std::cin >> D;
+					while (std::cin.fail())
+					{
+						std::cin.clear();
+						std::cin.ignore(std::cin.rdbuf()->in_avail());//Очистка буфера
+						std::cout << std::endl << "Неверно введено число, введите еще раз: ";
+						std::cin >> D;
+					}
 					PFraction[Index]->SetNumerator(N);
 					PFraction[Index]->SetDenominator(D);
 					break;
@@ -174,8 +214,22 @@ void Menu(Fraction **PFraction)
 				case 3://Умножение дроби объекта с заданным номером
 					std::cout << "Числитель множителя: ";
 					std::cin >> N;
+					while (std::cin.fail())
+					{
+						std::cin.clear();
+						std::cin.ignore(std::cin.rdbuf()->in_avail());//Очистка буфера
+						std::cout << std::endl << "Неверно введено число, введите еще раз: ";
+						std::cin >> N;
+					}
 					std::cout << "Знаменатель множителя: ";
 					std::cin >> D;
+					while (std::cin.fail())
+					{
+						std::cin.clear();
+						std::cin.ignore(std::cin.rdbuf()->in_avail());//Очистка буфера
+						std::cout << std::endl << "Неверно введено число, введите еще раз: ";
+						std::cin >> D;
+					}
 					F->SetNumerator(N);
 					F->SetDenominator(D);
 					PFraction[Index]->Mul(*F);
@@ -183,8 +237,22 @@ void Menu(Fraction **PFraction)
 				case 4://Деление дроби объекта с заданным номером
 					std::cout << "Числитель делителя: ";
 					std::cin >> N;
+					while (std::cin.fail())
+					{
+						std::cin.clear();
+						std::cin.ignore(std::cin.rdbuf()->in_avail());//Очистка буфера
+						std::cout << std::endl << "Неверно введено число, введите еще раз: ";
+						std::cin >> N;
+					}
 					std::cout << "Знаменатель делителя: ";
 					std::cin >> D;
+					while (std::cin.fail())
+					{
+						std::cin.clear();
+						std::cin.ignore(std::cin.rdbuf()->in_avail());//Очистка буфера
+						std::cout << std::endl << "Неверно введено число, введите еще раз: ";
+						std::cin >> D;
+					}
 					F->SetNumerator(N);
 					F->SetDenominator(D);
 					PFraction[Index]->Div(*F);
